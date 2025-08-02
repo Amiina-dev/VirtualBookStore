@@ -1,98 +1,80 @@
-HELP.md
+# 🌱 Project artifacts
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-builNumber.properties
-.mvn/timing.properties
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IDE specific ###
-.idea
-*.iws
-*.iml
-*.ipr
-.vscode/
-.project
-.classpath
-.settings/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### OS system files ###
-.DS_Store
-Thumbs.db
-Desktop.ini
-
-### Log files ###
-*.log
-logs/
-
-
-application*.properties
-application*.yml
-
-
+dist/
+nbbuild/
+nbdist/
 test-output/
 .rebel/
 *.tmp
 *~
 
-# Java
+# 💾 Java & Maven
 *.class
-*.log
 *.jar
 *.war
+*.log
+dependency-reduced-pom.xml
+buildNumber.properties
 
-# Maven
-target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
+pom.xml.next
 release.properties
 
-# IntelliJ IDEA
+# ⚙️ Maven Wrapper
+.mvn/
+.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+
+# 📦 Configuration & Secrets
+.env
+application*.properties
+application*.yml
+airtable-config.json
+
+# 🧪 Test-specific build folders (override exclusions)
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# 💻 IDE settings
+
+## IntelliJ IDEA
 .idea/
 *.iml
 out/
 
-# VS Code
+## VS Code
 .vscode/
 
-# OS junk
+## Eclipse / STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+## NetBeans
+/nbproject/private/
+/.nb-gradle/
+
+## JetBrains legacy
+*.iws
+*.ipr
+
+# 🖥️ OS system junk
 .DS_Store
 Thumbs.db
+Desktop.ini
 
-# Environment config
-.env
-application.properties
-application.yml
-airtable-config.json
+# 📓 Logs
+*.log
+logs/
 
-# Local files
-*.db
-*.sqlite
-*.bak
-
+# ⚠️ Documentation
+HELP.md
