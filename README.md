@@ -19,6 +19,7 @@ Getting Started
 - Clone the repository
 git clone https://github.com/your-username/VirtualBookStore.git
 cd VirtualBookStore
+git checkout master
 
 - Configure Airtable credentials in application.properties:
 airtable.api.token=your_airtable_api_key  
