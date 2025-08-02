@@ -60,3 +60,39 @@ test-output/
 *.tmp
 *~
 
+# Java
+*.class
+*.log
+*.jar
+*.war
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Environment config
+.env
+application.properties
+application.yml
+airtable-config.json
+
+# Local files
+*.db
+*.sqlite
+*.bak
+
