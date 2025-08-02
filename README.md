@@ -1,8 +1,8 @@
-###VirtualBookStore###
+### VirtualBookStore
 
 A backend system for a virtual bookstore built with Spring Boot, integrating with Airtable to manage and display book inventory. The application offers RESTful APIs to search, view, and manage books and shopping cart functionality — with a checkout feature in the works.
 
-Features
+## Features
 - View available books from Airtable
 - Search books by title, author or genre
 - Simulated customer login using HTTP sessions
@@ -10,7 +10,7 @@ Features
 - Input validation for book IDs
 - (In the works) Checkout and order processing
 
-Tech Stack
+## Tech Stack
 - Java + Spring Boot
 - Maven
 - Airtable API
@@ -18,7 +18,7 @@ Tech Stack
 - HttpSession for session management
 
 
-Getting Started
+## Getting Started
 - Clone the repository
  ```
   git clone https://github.com/your-username/VirtualBookStore.git
@@ -39,7 +39,7 @@ Getting Started
    mvn spring-boot:run
 ```
 
-API Endpoints
+## API Endpoints
 - GET    /books                 → Fetch all available books  
 - GET    /books/search          → Search books by title, author or genre  
 - POST   /cart/login            → Simulate user session(for testing)  
