@@ -8,8 +8,8 @@ Features
 - Simulated customer login using HTTP sessions
 - Cart management: add, remove, view, and clear items
 - Input validation for book IDs
-- (Coming Soon) Checkout and order processing
-- 
+- (In the works) Checkout and order processing
+
 Tech Stack
 - Java + Spring Boot
 - Maven
