@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Bookstore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            max-width: 800px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 40px;
+        }
+        .book-item {
+            margin-bottom: 10px;
+        }
+        button {
+            margin: 5px 0 10px 10px;
+        }
+        #search-results, #book-list {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📚 Welcome to the Bookstore</h1>
+    <a href="cart-tester.html"><button>🛒 View Cart</button></a>
+
+    <!-- 🔍 Search Section -->
+    <h2>Search Books</h2>
+    <input type="text" id="searchInput" placeholder="Search books">
+    <button id="searchButton" onclick="searchBooks()">Search</button>
+    <button id="clearSearchButton" onclick="clearSearch()" style="display:none;">Clear Search</button>
+    <div id="search-results"></div>
+
+    <!-- 📖 Book List Section -->
+    <h2 id="browseLabel">Browse Books</h2>
+    <div id="book-list"></div>
+    <button onclick="prevPage()">⬅️ Previous Page</button>
+    <button onclick="nextPage()">➡️ Next Page</button>
+
+    <!-- 🧠 Script -->
+    <script>
+        let currentPage = 0;
+
+        const searchInput = document.getElementById("searchInput");
+        const searchButton = document.getElementById("searchButton");
+        const clearSearchButton = document.getElementById("clearSearchButton");
+        const bookListContainer = document.getElementById("book-list");
+        const searchResultsContainer = document.getElementById("search-results");
+        const browseLabel = document.getElementById("browseLabel");
+
+        // Disable search button if input is empty
+        searchInput.addEventListener("input", () => {
+            searchButton.disabled = searchInput.value.trim() === "";
+        });
+
+        // Load books for the current page
+        function loadBooks() {
+            fetch(`/books/page?page=${currentPage}&size=10`)
+                .then(res => res.json())
+                .then(data => {
+                    bookListContainer.style.display = "block";
+                    browseLabel.style.display = "block";
+                    searchResultsContainer.innerHTML = "";
+                    clearSearchButton.style.display = "none";
+
+                    bookListContainer.innerHTML = `<h3>Page ${currentPage + 1}</h3>`;
+                    if (data.length === 0) {
+                        bookListContainer.innerHTML += "<p>No books available.</p>";
+                        return;
+                    }
+                    data.forEach(book => {
+                        bookListContainer.innerHTML += `
+                            <div class="book-item">
+                                <strong>${book.title}</strong> by ${book.author} (${book.genre})
+                                <button onclick="addToCart(${book.id})">Add to Cart</button>
+                            </div>
+                        `;
+                    });
+                });
+        }
+
+        // Pagination
+        function nextPage() {
+            const next = currentPage + 1;
+            fetch(`/books/page?page=${next}&size=10`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.length === 0) {
+                        alert("🚫 No more books to show.");
+                        return;
+                    }
+                    currentPage = next;
+                    loadBooks();
+                });
+        }
+
+        function prevPage() {
+            if (currentPage === 0) {
+                alert("🚫 You're already on the first page.");
+                return;
+            }
+            currentPage--;
+            loadBooks();
+        }
+
+        // Search
+        function searchBooks() {
+            const query = searchInput.value.trim();
+            if (query === "") return;
+
+            bookListContainer.style.display = "none";
+            browseLabel.style.display = "none";
+            clearSearchButton.style.display = "inline";
+
+            fetch(`/books/search?query=${query}`)
+                .then(res => res.json())
+                .then(data => {
+                    searchResultsContainer.innerHTML = `<h3>Search Results</h3>`;
+                    if (data.length === 0) {
+                        searchResultsContainer.innerHTML += "<p>No matching books found.</p>";
+                        return;
+                    }
+                    data.forEach(book => {
+                        searchResultsContainer.innerHTML += `
+                            <div class="book-item">
+                                <strong>${book.title}</strong> by ${book.author} (${book.genre})
+                                <button onclick="addToCart(${book.id})">Add to Cart</button>
+                            </div>
+                        `;
+                    });
+                });
+        }
+
+        // Restore book list
+        function clearSearch() {
+            searchInput.value = "";
+            searchButton.disabled = true;
+            clearSearchButton.style.display = "none";
+            searchResultsContainer.innerHTML = "";
+            currentPage = 0;
+            loadBooks();
+        }
+
+        // Cart
+        function addToCart(bookId) {
+        	fetch(`/cart/add/${bookId}`, { method: "POST" })
+            .then(res => res.text())
+            .then(msg => alert(msg));
+        }
+
+        // Auto-load first page on open
+        document.addEventListener("DOMContentLoaded", () => {
+            loadBooks();
+        });
+    </script>
+
+</body>
+</html>
