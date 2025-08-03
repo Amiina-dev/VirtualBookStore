@@ -1,0 +1,11 @@
+com\aminatech\VirtualBookStore\model\Order.class
+com\aminatech\VirtualBookStore\model\Book.class
+com\aminatech\VirtualBookStore\controller\BookController.class
+com\aminatech\VirtualBookStore\model\CartItem.class
+com\aminatech\VirtualBookStore\controller\LoginController.class
+com\aminatech\VirtualBookStore\VirtualBookStoreApplication.class
+com\aminatech\VirtualBookStore\controller\CartController.class
+com\aminatech\VirtualBookStore\model\Cart.class
+com\aminatech\VirtualBookStore\service\CartService.class
+com\aminatech\VirtualBookStore\controller\EndpointScannerController.class
+com\aminatech\VirtualBookStore\service\BookService.class

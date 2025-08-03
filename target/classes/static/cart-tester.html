@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+</head>
+<body>
+    <h1>🛒 Your Shopping Cart</h1>
+    <div id="cart-items"></div>
+
+    <script>
+        function loadCart() {
+            fetch('/cart')
+                .then(res => res.json())
+                .then(data => {
+                    const container = document.getElementById("cart-items");
+                    if (data.length === 0) {
+                        container.innerHTML = "<p>Your cart is empty.</p>";
+                        return;
+                    }
+                    data.forEach(book => {
+                        container.innerHTML += `
+                            <div>
+                                <strong>${book.title}</strong> by ${book.author}
+                            </div>
+                        `;
+                    });
+                });
+        }
+
+        loadCart();
+    </script>
+</body>
+</html>

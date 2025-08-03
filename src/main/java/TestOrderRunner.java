@@ -1,8 +1,8 @@
-//package com.example.VirtualBookStore;
+//package com.aminatech.VirtualBookStore;
 //
-//import com.example.VirtualBookStore.model.Order;
-//import com.example.VirtualBookStore.model.Cart;
-//import com.example.VirtualBookStore.service.CartService;
+//import com.aminatech.VirtualBookStore.model.Order;
+//import com.aminatech.VirtualBookStore.model.Cart;
+//import com.aminatech.VirtualBookStore.service.CartService;
 //import java.time.LocalDate;
 //import java.util.List;
 //
@@ -11,7 +11,7 @@
 //        Order order = new Order();
 //        order.setId(1L);
 //        order.setCustomerName("Amina");
-//        order.setCustomerEmail("amina@example.com");
+//        order.setCustomerEmail("amina@aminatech.com");
 //        order.setBookIds(List.of(101L, 102L));
 //        order.setOrderDate(LocalDate.now());
 //        order.setFulfilled(false);
