@@ -1,6 +1,6 @@
 ## VirtualBookStore
 
-A backend system for a virtual bookstore built with Spring Boot, integrating with Airtable to manage and display book inventory. The application offers RESTful APIs to search, view, and manage books and shopping cart functionality — with a checkout feature in the works.
+A backend system for a virtual bookstore built with Spring Boot, integrating with Airtable to manage and display book inventory. The application offers RESTful APIs to search, view, and manage books and shopping cart functionality, with a checkout feature in the works.
 
 ### Features
 - View available books from Airtable
