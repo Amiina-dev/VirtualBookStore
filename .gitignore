@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 HELP.md
 
 pom.xml.tag
@@ -52,8 +53,85 @@ logs/
 ##application*.yml
 
 
+=======
+# 🌱 Project artifacts
+target/
+build/
+dist/
+nbbuild/
+nbdist/
+>>>>>>> 48fb85fc87761078a4574a4ab4c10efae46dccd3
 test-output/
 .rebel/
 *.tmp
 *~
 
+# 💾 Java & Maven
+*.class
+*.jar
+*.war
+*.log
+dependency-reduced-pom.xml
+buildNumber.properties
+
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# ⚙️ Maven Wrapper
+.mvn/
+.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+
+# 📦 Configuration & Secrets
+.env
+application*.properties
+application*.yml
+airtable-config.json
+
+# 🧪 Test-specific build folders (override exclusions)
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# 💻 IDE settings
+
+## IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+## VS Code
+.vscode/
+
+## Eclipse / STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+## NetBeans
+/nbproject/private/
+/.nb-gradle/
+
+## JetBrains legacy
+*.iws
+*.ipr
+
+# 🖥️ OS system junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 📓 Logs
+*.log
+logs/
+
+# ⚠️ Documentation
+HELP.md
